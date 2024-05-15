@@ -6,6 +6,8 @@
 #define RIGHT_WHEEL_IN1 2
 #define RIGHT_WHEEL_IN2 3
 
+#define BRUSH_PIN 4
+
 enum State {
   FORWARD,
   BACKWARD,
@@ -21,6 +23,7 @@ void setup() {
   pinMode(RIGHT_WHEEL_ENABLE, OUTPUT);
   pinMode(RIGHT_WHEEL_IN1, OUTPUT);
   pinMode(RIGHT_WHEEL_IN2, OUTPUT);
+  pinMode(BRUSH_PIN, OUTPUT);
 }
 
 void loop() {
@@ -28,6 +31,7 @@ void loop() {
   int speed;
   bool lFd, rFd;
   State state;
+  bool brushesOn;
   /*
   Forward -> lFd = rFd = true
   Backward -> lFd = rFd = false
@@ -58,4 +62,5 @@ void loop() {
   digitalWrite(LEFT_WHEEL_IN2, (lFd) ? LOW : HIGH);
   digitalWrite(RIGHT_WHEEL_IN1, (rFd) ? HIGH : LOW);
   digitalWrite(RIGHT_WHEEL_IN2, (rFd) ? LOW : HIGH);
+  digitalWrite(BRUSH_PIN, (brushOn) ? HIGH : LOW);
 }
