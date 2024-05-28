@@ -44,6 +44,8 @@ void setup() {
   pinMode(S2, OUTPUT);
   pinMode(S3, OUTPUT);
   pinMode(out, INPUT);
+  digitalWrite(S0, HIGH);
+  digitalWrite(S1, HIGH);
 }
 
 void loop() {
@@ -82,14 +84,14 @@ void loop() {
   digitalWrite(RIGHT_WHEEL_IN1, (rFd) ? HIGH : LOW);
   digitalWrite(RIGHT_WHEEL_IN2, (rFd) ? LOW : HIGH);
 
-  digitalWrite(s2,  LOW);                                           //S2/S3 levels define which set  of photodiodes we are using LOW/LOW is for RED LOW/HIGH is for Blue and HIGH/HIGH  is for green 
-  digitalWrite(s3, LOW);                                           
+  digitalWrite(S2,  LOW);                                           //S2/S3 levels define which set  of photodiodes we are using LOW/LOW is for RED LOW/HIGH is for Blue and HIGH/HIGH  is for green 
+  digitalWrite(S3, LOW);                                           
   Red = pulseIn(out, digitalRead(out) == HIGH ? LOW : HIGH);       //here we wait  until "out" go LOW, we start measuring the duration and stops when "out" is  HIGH again, if you have trouble with this expression check the bottom of the code
   delay(20);  
-  digitalWrite(s3, HIGH);                                         //Here  we select the other color (set of photodiodes) and measure the other colors value  using the same techinque
+  digitalWrite(S3, HIGH);                                         //Here  we select the other color (set of photodiodes) and measure the other colors value  using the same techinque
   Blue = pulseIn(out, digitalRead(out) == HIGH ? LOW  : HIGH);
   delay(20);  
-  digitalWrite(s2, HIGH);  
+  digitalWrite(S2, HIGH);  
   Green = pulseIn(out,  digitalRead(out) == HIGH ? LOW : HIGH);
   delay(20);
 
