@@ -96,7 +96,9 @@ void loop() {
   Green = pulseIn(out,  digitalRead(out) == HIGH ? LOW : HIGH);
   delay(20);
 
-  BTSerial.write(Red + " " + Green + " " + Blue);
+  BTSerial.write(Red);
+  BTSerial.write(Green);
+  BTSerial.write(Blue);
 
   int pressure = analogRead(PRESSURE);
   if(state = TURN_RIGHT) {
