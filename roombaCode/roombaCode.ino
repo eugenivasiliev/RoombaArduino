@@ -8,9 +8,6 @@
 #define RIGHT_WHEEL_IN1 4
 #define RIGHT_WHEEL_IN2 5
 
-#define BTRX 13
-#define BTTX 12
-
 #define out 8
 
 #define S0 A0
@@ -20,7 +17,7 @@
 
 #define PRESSURE A5
 
-SoftwareSerial(BTRX, BTTX);
+SoftwareSerial(13, 12);
 
 enum State {
   FORWARD,
