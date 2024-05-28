@@ -17,7 +17,7 @@
 
 #define PRESSURE A5
 
-SoftwareSerial(13, 12);
+SoftwareSerial BTSerial (13, 12);
 
 enum State {
   FORWARD,
@@ -52,6 +52,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   int speed = 1023;
   bool lFd, rFd;
+  int Red, Green, Blue;
   State state = FORWARD;
   /*
   Forward -> lFd = rFd = true
